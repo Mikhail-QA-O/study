@@ -11,8 +11,8 @@ class ValidationJsonSchemas:
 
     @staticmethod
     def checking_json_schema(url):
-        ValidationJsonSchemas.open_json_schema(url.json(), '/study/schemas/schema.json')
+        ValidationJsonSchemas.open_json_schema(url.json(), 'schemas/schema.json')
 
     @staticmethod
     def checking_json_schema_array(url):
-        ValidationJsonSchemas.open_json_schema(url.json(), '/study/schemas/schema_array.json')
+        ValidationJsonSchemas.open_json_schema(url.json(), 'schemas/schema_array.json')

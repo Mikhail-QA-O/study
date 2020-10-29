@@ -18,18 +18,12 @@ class CredentialUpdating:
     }
 
     user_201 = {
-        "userId": 199,
-        "id": 199,
-        "title": "199",
+        "userId": 201,
+        "id": 201,
+        "title": "201",
         "completed": True,
     }
 
     new_title = {
         'title': '123'
-    }
-
-
-class CredentialsFiltering:
-    user_id_1 = {
-        'userId': 1
     }

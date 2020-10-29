@@ -1,12 +1,17 @@
+import pytest
 from schemas.data_preparation import ValidationJsonSchemas
 
 
-def test_get_user_1(session, base_url):
-    get_user_1 = session.get(base_url + '1')
-    assert get_user_1.status_code == 200
-    ValidationJsonSchemas.checking_json_schema(url=get_user_1)
+@pytest.mark.parametrize('todo_id', [1, 200])
+def test_get_todo(session, base_url, todo_id):
+    res = session.get(base_url + str(todo_id))
+    assert res.status_code == 200
+    assert res.json()['id'] == todo_id
+    ValidationJsonSchemas.checking_json_schema(url=res)
 
 
-def test_get_invalid_data(session, base_url):
-    get_invalid_data = session.get(base_url + '0')
-    assert get_invalid_data.status_code == 404
+@pytest.mark.parametrize('todo_id', [-1, 0, 201])
+def test_invalid_ids(session, base_url, todo_id):
+    invalid_ids = session.get(base_url + str(todo_id))
+    assert invalid_ids.status_code == 404
+    assert len(invalid_ids.json()) == 0
