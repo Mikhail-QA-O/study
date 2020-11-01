@@ -6,7 +6,7 @@ button_my_account = '.pull-right li.dropdown a.dropdown-toggle'
 button_continue = 'input.btn.btn-primary'
 
 
-def test_open_wk(driver, base_url):
+def test_opencart(driver, base_url):
     driver.get(base_url)
     assert driver.current_url == base_url
 
